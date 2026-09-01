@@ -1,25 +1,29 @@
-# Job Application Tracker
+# 📋 Job Application Tracker
 
 Personal CRM for the job/co-op search: log applications, see funnel stats at a
 glance, get reminded before a follow-up goes stale. Built because I'm tracking
 this by hand right now anyway — might as well be the thing I put on my resume.
 
-## Stack
+**Status:** ✅ MVP complete — CRUD, status pipeline, dashboard, and follow-up flag all working locally. Not yet deployed.
+
+---
+
+## 🧱 Stack
 - Next.js (App Router) + TypeScript
 - Tailwind CSS
 - Prisma + SQLite (swap to Postgres for prod — see `.env.example`)
 
-## Why this stack
+## 🎯 Why this stack
 Fast to stand up, one codebase for frontend + API, and it's all stuff already
 on the resume — no new tech to learn just to build this one.
 
-## Core features (MVP scope — keep it small)
-- [x] CRUD on applications: company, role, status, applied date, notes
-- [x] Status pipeline: Applied → OA → Interview → Offer / Rejected
-- [x] Dashboard: funnel counts per stage
-- [x] Follow-up reminder flag (no status change in 14 days)
+## ✅ Core features (MVP scope — keep it small)
+- [x] 📝 CRUD on applications: company, role, status, applied date, notes
+- [x] 🔀 Status pipeline: Applied → OA → Interview → Offer / Rejected
+- [x] 📊 Dashboard: funnel counts per stage
+- [x] ⏰ Follow-up reminder flag (no status change in 14 days)
 
-## Design decisions
+## 🧠 Design decisions
 - **SQLite for dev, Postgres for prod, no code changes required** — the
   datasource is entirely driven by `DATABASE_URL`. Local dev stays
   zero-setup; swapping the connection string is the only change needed to
@@ -37,12 +41,12 @@ on the resume — no new tech to learn just to build this one.
   instead of at the schema level. Trade-off made explicit rather than
   discovered by a failed migration.
 
-## Explicitly out of scope for v1
+## 🚫 Explicitly out of scope for v1
 - Auth / multi-user (this is a single-user personal tool)
 - Email parsing / auto-import
 - Notifications beyond an in-app flag
 
-## Setup
+## 🚀 Setup
 ```bash
 npm install
 cp .env.example .env
@@ -50,6 +54,6 @@ npx prisma migrate dev --name init
 npm run dev
 ```
 
-## Status
+## 📌 Status
 MVP complete — CRUD, status pipeline, dashboard, and follow-up flag all
 working. Remaining: deploy to Vercel. See `TODO.md`.
