@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaPlus } from "react-icons/fa6";
 
 export function AddApplicationForm() {
   const router = useRouter();
@@ -37,26 +38,27 @@ export function AddApplicationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap sm:flex-nowrap">
       <input
         value={company}
         onChange={(e) => setCompany(e.target.value)}
         placeholder="Company"
         required
-        className="border border-slate-300 rounded-lg px-3 py-2 flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+        className="border border-line-bright bg-bg rounded-lg px-3 py-2 flex-1 min-w-[140px] text-sm text-ink placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
       />
       <input
         value={role}
         onChange={(e) => setRole(e.target.value)}
         placeholder="Role"
         required
-        className="border border-slate-300 rounded-lg px-3 py-2 flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+        className="border border-line-bright bg-bg rounded-lg px-3 py-2 flex-1 min-w-[140px] text-sm text-ink placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
       />
       <button
         type="submit"
         disabled={submitting}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-2 text-sm font-medium disabled:opacity-50 transition-colors"
+        className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-bright text-[#04100e] rounded-lg px-4 py-2 text-sm font-medium disabled:opacity-50 transition-colors"
       >
+        <FaPlus size={11} />
         {submitting ? "Adding..." : "Add"}
       </button>
     </form>

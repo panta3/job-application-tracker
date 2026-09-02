@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaTrash } from "react-icons/fa6";
 
 export function DeleteButton({ id }: { id: string }) {
   const router = useRouter();
@@ -30,9 +31,10 @@ export function DeleteButton({ id }: { id: string }) {
     <button
       onClick={handleDelete}
       disabled={deleting}
-      className="text-rose-600 text-sm font-medium px-2 py-1 rounded-lg hover:bg-rose-50 disabled:opacity-50 transition-colors"
+      aria-label="Delete application"
+      className="inline-flex items-center justify-center text-rose-400 p-2 rounded-lg hover:bg-rose-500/10 disabled:opacity-50 transition-colors"
     >
-      {deleting ? "..." : "Delete"}
+      <FaTrash size={13} />
     </button>
   );
 }

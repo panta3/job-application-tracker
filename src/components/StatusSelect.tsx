@@ -36,7 +36,7 @@ export function StatusSelect({ id, status }: { id: string; status: string }) {
       value={status}
       onChange={handleChange}
       disabled={updating}
-      className={`border rounded-lg px-2 py-1.5 text-sm font-medium disabled:opacity-50 cursor-pointer ${colors.bg} ${colors.text} ${colors.border}`}
+      className={`border rounded-lg px-2 py-1.5 text-sm font-medium disabled:opacity-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 ${colors.bg} ${colors.text} ${colors.border}`}
     >
       {STATUSES.map((s) => (
         <option key={s} value={s}>

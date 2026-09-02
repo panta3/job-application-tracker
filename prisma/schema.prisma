@@ -3,14 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-// SQLite has no native enum type, so Prisma can't enforce this at the DB
-// level here (would work as a real `enum` on Postgres/MySQL). Status is a
-// plain String — enforce the allowed values in TypeScript instead.
-// Allowed values: APPLIED | OA | INTERVIEW | OFFER | REJECTED
+// Now that this runs on Postgres, `status` could become a real database
+// enum (it couldn't on SQLite, which has no enum type). Left as a plain
+// String for now to keep this migration to the single change it needs to
+// be — enforced in TypeScript instead. Allowed values: APPLIED | OA |
+// INTERVIEW | OFFER | REJECTED. Worth revisiting later, not required to
+// get this deployed.
 
 // TODO: decide if company/role should be their own models or stay flat.
 // Flat is fine for a single-user tool — don't over-normalize this.

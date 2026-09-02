@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  color-scheme: dark;
+}
+
+/* subtle grid texture — cheap CSS, no JS/WebGL cost, unlike the
+   portfolio site's hero background. This is a tool used for daily data
+   entry, not a marketing page, so it stays visual-only and static. */
+.grid-field {
+  background-image:
+    linear-gradient(to right, #1c262b 1px, transparent 1px),
+    linear-gradient(to bottom, #1c262b 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+::selection {
+  background: #35e0c9;
+  color: #04100e;
+}
